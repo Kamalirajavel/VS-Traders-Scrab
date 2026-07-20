@@ -1,0 +1,1 @@
+ALTER TABLE public.scrap_types ADD COLUMN IF NOT EXISTS category_name TEXT; ALTER TABLE public.scrap_types ADD COLUMN IF NOT EXISTS sub_category TEXT; ALTER TABLE public.scrap_types ADD COLUMN IF NOT EXISTS price_per_kg NUMERIC(10, 2);
