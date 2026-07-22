@@ -171,7 +171,7 @@ const Contact = () => {
                   {[
                     { icon: Phone, label: "Phone", value: "9500805193", href: "tel:9500805193" },
                     { icon: MessageCircle, label: "WhatsApp", value: "9500805193", href: "https://wa.me/919500805193" },
-                    { icon: Mail, label: "Email", value: "V.vimalraj9841@gmail.com", href: "mailto:V.vimalraj9841@gmail.com" },
+                    { icon: Mail, label: "Email", value: "vstraders818@gmail.com", href: "mailto:vstraders818@gmail.com" },
                     { icon: MapPin, label: "Address", value: "No:19 Thirumalai Street, Venkateshwara Nagar, Ambattur, Chennai – 600053", href: "https://maps.app.goo.gl/ZaNsH7bPNUGss7EU8" },
                   ].map((c) => (
                     <a key={c.label} href={c.href} target={c.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer"
