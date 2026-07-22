@@ -102,7 +102,7 @@ const About = () => {
               {[
                 { icon: MapPin, title: "Address", info: "No:19 Thirumalai Street, Venkateshwara Nagar, Ambattur, Chennai – 600053" },
                 { icon: Phone, title: "Phone", info: "9500805193" },
-                { icon: Mail, title: "Email", info: "V.vimalraj9841@gmail.com" },
+                { icon: Mail, title: "Email", info: "vstraders818@gmail.com" },
               ].map((item) => (
                 <div key={item.title} className="bg-surface border border-border rounded-2xl p-7 text-center hover:border-gold/50 hover:shadow-gold transition-all duration-300">
                   <div className="w-12 h-12 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center mx-auto mb-4">
