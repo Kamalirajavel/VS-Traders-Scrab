@@ -66,9 +66,6 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-
-            
-            // NEW
             <div className="w-10 h-10 rounded-lg overflow-hidden shadow-gold">
             <img src={vsTradersLogo} alt="V.S Traders Logo" className="w-full h-full object-cover" />
             </div>
