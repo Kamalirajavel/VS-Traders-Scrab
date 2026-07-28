@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 
+import vsTradersLogo from "@/assets/vs-traders-logo.jpg";
+
 const Footer = () => {
   return (
     <footer className="bg-surface border-t border-border">
@@ -9,9 +11,22 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-5">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg gradient-gold flex items-center justify-center">
+
+
+              
+              {/*<div className="w-10 h-10 rounded-lg gradient-gold flex items-center justify-center">
                 <span className="text-background font-900 text-lg">VS</span>
-              </div>
+              </div>*/}
+
+
+
+              // NEW
+               <div className="w-10 h-10 rounded-lg overflow-hidden shadow-gold">
+               <img src={vsTradersLogo} alt="V.S Traders Logo" className="w-full h-full object-cover" />
+               </div>
+
+
+              
               <div>
                 <p className="text-foreground font-800 text-lg leading-tight">V.S Traders</p>
                 <p className="text-gold text-[10px] font-500 uppercase tracking-widest">Premium Scrap Buyers</p>
