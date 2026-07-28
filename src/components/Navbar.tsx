@@ -68,12 +68,6 @@ const Navbar = () => {
           <Link to="/" className="flex items-center gap-3 group">
 
             
-            {/*<div className="w-10 h-10 rounded-lg gradient-gold flex items-center justify-center shadow-gold">
-              <span className="text-background font-900 text-lg">VS</span>
-            </div>*/}
-
-
-
             // NEW
             <div className="w-10 h-10 rounded-lg overflow-hidden shadow-gold">
             <img src={vsTradersLogo} alt="V.S Traders Logo" className="w-full h-full object-cover" />
