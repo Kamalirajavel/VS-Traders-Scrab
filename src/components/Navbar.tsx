@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
 
-import vsTradersLogo from "@/assets/vs-traders-logo.jpg";
+import vsTradersLogo from "@/assets/vs-traders-logo.png";
 
 const navLinks = [
   { label: "Home", path: "/", anchor: null },
