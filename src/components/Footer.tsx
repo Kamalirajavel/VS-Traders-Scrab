@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
 
-import vsTradersLogo from "@/assets/vs-traders-logo.jpg";
+import vsTradersLogo from "@/assets/vs-traders-logo.png";
 
 const Footer = () => {
   return (
