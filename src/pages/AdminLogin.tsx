@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Loader2, LogIn, Eye, EyeOff } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
-import vsTradersLogo from "@/assets/vs-traders-logo.jpg";
+import vsTradersLogo from "@/assets/vs-traders-logo.png";
 
 const AdminLogin = () => {
   const navigate = useNavigate();
