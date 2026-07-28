@@ -42,8 +42,8 @@ const AdminLogin = () => {
 
         
         {/* Logo */}
-        {/*<div className="text-center mb-8 space-y-3">
-          <div className="w-16 h-16 mx-auto gradient-gold rounded-2xl flex items-center justify-center shadow-gold">
+        <div className="text-center mb-8 space-y-3">
+          {/* <div className="w-16 h-16 mx-auto gradient-gold rounded-2xl flex items-center justify-center shadow-gold">
             <span className="text-background font-900 text-2xl">VS</span>
           </div>*/}
 
