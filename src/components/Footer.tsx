@@ -116,7 +116,7 @@ const Footer = () => {
             © 2026 V.S Traders. All Rights Reserved.
           </p>
           <a
-            href="https://gloovup.com"
+            href="https://marketerraja.com"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground text-xs hover:text-gold transition-colors"
