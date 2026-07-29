@@ -204,15 +204,7 @@ const ScrapTypes = () => {
               );
             })}
           </div>
-                  { /* )}
-      </div>
-    </section>
-  );
-}; */}
-
-
-
-                  )}
+         )}
       </div>
 
       {/* Custom inquiry popup — shown when a category with no listed items is clicked */}
