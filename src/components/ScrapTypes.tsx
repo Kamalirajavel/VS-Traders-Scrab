@@ -66,9 +66,7 @@ const ScrapTypes = () => {
   };
 
   return (
-    {/*<section id="materials" className="py-24 bg-surface"> */}
-
-      <section id="materials" className="pt-24 pb-8 bg-surface">
+         <section id="materials" className="pt-24 pb-8 bg-surface">
 
         
       <div className="container mx-auto px-4 lg:px-8 max-w-3xl">
