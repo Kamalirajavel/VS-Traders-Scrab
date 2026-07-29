@@ -122,7 +122,7 @@ const Footer = () => {
             className="text-muted-foreground text-xs hover:text-gold transition-colors"
           >
             Powered by{" "}
-            <span className="text-gold font-600">Gloov Up Group</span>
+            <span className="text-gold font-600">Marketer Raja</span>
           </a>
         </div>
       </div>
