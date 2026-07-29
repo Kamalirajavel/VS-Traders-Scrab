@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-
-//import { ChevronDown, ChevronRight } from "lucide-react";
-
 import { ChevronDown, ChevronRight, X, Send } from "lucide-react";
-
-
 import { supabase } from "@/integrations/supabase/client";
 import ironImg from "@/assets/scrap-iron.jpg";
 
