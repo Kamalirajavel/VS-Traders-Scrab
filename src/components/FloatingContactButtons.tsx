@@ -1,11 +1,16 @@
 import { Phone } from "lucide-react";
+import CartDrawer from "@/components/CartDrawer";
 
 const WHATSAPP_NUMBER = "919500805193"; // country code + number, no + or spaces
 const PHONE_NUMBER = "+919500805193";
 
+
 const FloatingContactButtons = () => {
   return (
     <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-5 items-end">
+      
+      <CartDrawer />
+         
       {/* WhatsApp Button */}
       <a
         href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi%2C%20I%20want%20to%20sell%20scrap`}
