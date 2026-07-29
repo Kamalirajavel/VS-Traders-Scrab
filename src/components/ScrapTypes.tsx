@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ChevronDown, ChevronRight } from "lucide-react";
+
+
+//import { ChevronDown, ChevronRight } from "lucide-react";
+
+import { ChevronDown, ChevronRight, X, Send } from "lucide-react";
+
+
 import { supabase } from "@/integrations/supabase/client";
 import ironImg from "@/assets/scrap-iron.jpg";
 
@@ -25,7 +31,13 @@ const ScrapTypes = () => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+
+  
+  /*const [expandedId, setExpandedId] = useState<string | null>(null); */
+
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [inquiryCategory, setInquiryCategory] = useState<Category | null>(null);
+  const [metalInput, setMetalInput] = useState("");
 
   const fetchData = async () => {
     const [{ data: cats }, { data: prods }] = await Promise.all([
@@ -54,7 +66,11 @@ const ScrapTypes = () => {
   };
 
   return (
-    <section id="materials" className="py-24 bg-surface">
+    {/*<section id="materials" className="py-24 bg-surface"> */}
+
+      <section id="materials" className="pt-24 pb-8 bg-surface">
+
+        
       <div className="container mx-auto px-4 lg:px-8 max-w-3xl">
         {/* Header */}
         <div className="text-center space-y-4 mb-16">
@@ -107,11 +123,29 @@ const ScrapTypes = () => {
                   }`}
                 >
                   {/* Category row — click to expand/collapse, no navigation */}
-                  <button
+
+                  
+                  {/*<button
                     type="button"
                     onClick={() => toggleCategory(cat.id)}
                     className="group w-full flex items-center gap-4 p-4 cursor-pointer text-left"
-                  >
+                  >*/}
+
+
+                  <button
+                     type="button"
+                     onClick={() => {
+                     if (catProducts.length === 0) {
+                     setMetalInput("");
+                     setInquiryCategory(cat);
+                    } else {
+                        toggleCategory(cat.id);
+                   }
+          }}
+  className="group w-full flex items-center gap-4 p-4 cursor-pointer text-left"
+>
+
+                  
                     <img
                       src={cat.image_url || ironImg}
                       alt={cat.name}
@@ -178,8 +212,74 @@ const ScrapTypes = () => {
               );
             })}
           </div>
-        )}
+                  { /* )}
       </div>
+    </section>
+  );
+}; */}
+
+
+
+                  )}
+      </div>
+
+      {/* Custom inquiry popup — shown when a category with no listed items is clicked */}
+      {inquiryCategory && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          onClick={() => setInquiryCategory(null)}
+        >
+          <div className="absolute inset-0 bg-background/90 backdrop-blur-sm animate-in fade-in duration-200" />
+
+          <div
+            className="relative z-10 bg-surface border border-border rounded-2xl overflow-hidden w-full max-w-md shadow-card animate-in zoom-in-95 fade-in duration-200 p-6 space-y-5"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setInquiryCategory(null)}
+              className="absolute top-4 right-4 z-20 w-8 h-8 rounded-full bg-background/80 border border-border flex items-center justify-center text-muted-foreground hover:text-gold hover:border-gold transition-all"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            <div className="space-y-1 pr-8">
+              <span className="text-gold text-xs font-700 uppercase tracking-widest">{inquiryCategory.name}</span>
+              <h3 className="text-foreground text-xl font-800">Tell us what you have</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                We haven't listed specific items for this category yet. Let us know which metal or item you'd like to sell, and we'll get back to you with pricing and pickup details.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <label htmlFor="metal-input" className="text-foreground text-sm font-600">
+                Metal / item name
+              </label>
+              <input
+                id="metal-input"
+                type="text"
+                value={metalInput}
+                onChange={(e) => setMetalInput(e.target.value)}
+                placeholder="e.g. Stainless steel utensils"
+                className="w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:border-gold/50"
+                autoFocus
+              />
+            </div>
+
+            
+              href={`https://wa.me/919500805193?text=${encodeURIComponent(
+                `Hi, I want to sell scrap under "${inquiryCategory.name}". Item: ${metalInput || "(not specified)"}`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setInquiryCategory(null)}
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 gradient-gold text-background font-bold rounded-xl shadow-gold hover:opacity-90 transition-all duration-200"
+            >
+              Send via WhatsApp
+              <Send className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
