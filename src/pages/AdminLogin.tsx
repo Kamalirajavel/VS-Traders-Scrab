@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Loader2, LogIn, Eye, EyeOff } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
-import vsTradersLogo from "@/assets/vs-traders-logo.png";
+
 
 const AdminLogin = () => {
   const navigate = useNavigate();
@@ -43,18 +43,11 @@ const AdminLogin = () => {
         
         {/* Logo */}
         <div className="text-center mb-8 space-y-3">
-          {/* <div className="w-16 h-16 mx-auto gradient-gold rounded-2xl flex items-center justify-center shadow-gold">
+           <div className="w-16 h-16 mx-auto gradient-gold rounded-2xl flex items-center justify-center shadow-gold">
             <span className="text-background font-900 text-2xl">VS</span>
-          </div>*/}
+          </div>
 
-
-        // NEW
-           <div className="w-16 h-16 mx-auto rounded-2xl overflow-hidden shadow-gold">
-           <img src={vsTradersLogo} alt="V.S Traders Logo" className="w-full h-full object-cover" />
-           </div>
-
-
-        
+       
           <div>
             <h1 className="text-2xl font-800 text-foreground">V.S Traders Admin</h1>
             <p className="text-muted-foreground text-sm mt-1">Sign in to manage your content</p>
