@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
 
-import vsTradersLogo from "@/assets/vs-traders-logo.png";
+import vsTradersLogo from "@/assets/vs-traders-logo-full.png";
 
 const navLinks = [
   { label: "Home", path: "/", anchor: null },
@@ -64,18 +64,16 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-lg overflow-hidden shadow-gold">
-            <img src={vsTradersLogo} alt="V.S Traders Logo" className="w-full h-full object-cover" />
-            </div>
 
-            
-            <div>
-              <p className="text-foreground font-800 text-lg leading-tight">V.S Traders</p>
-              <p className="text-gold text-[10px] font-500 uppercase tracking-widest">Premium Scrap Buyers</p>
-            </div>
-          </Link>
+
+          <Link to="/" className="flex items-center group">
+  <img
+    src={vsTradersLogo}
+    alt="V.S Traders - Premium Scrap Buyers"
+    className="h-14 w-auto object-contain"
+  />
+</Link>
+          
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
