@@ -71,7 +71,7 @@ const Navbar = () => {
             <div className="w-10 h-10 rounded-lg gradient-gold flex items-center justify-center shadow-gold">
               <span className="text-background font-900 text-lg">VS</span>
             </div>
-          
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
