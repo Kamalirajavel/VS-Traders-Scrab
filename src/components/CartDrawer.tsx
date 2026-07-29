@@ -83,7 +83,7 @@ const CartDrawer = () => {
                   Clear All
                 </button>
               )}
-              
+              <a
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
