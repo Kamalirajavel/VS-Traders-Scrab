@@ -12,28 +12,15 @@ const Footer = () => {
           <div className="space-y-5">
             <div className="flex items-center gap-3">
 
-
-              
-               // NEW
-              {/* <div className="w-10 h-10 rounded-lg overflow-hidden shadow-gold">
-               <img src={vsTradersLogo} alt="V.S Traders Logo" className="w-full h-full object-cover" />
-               </div>
-             
-              <div>
-                <p className="text-foreground font-800 text-lg leading-tight">V.S Traders</p>
-                <p className="text-gold text-[10px] font-500 uppercase tracking-widest">Premium Scrap Buyers</p>
-              </div>
-            </div> */}
-
-             
-<div className="flex items-center">
-  <img
-    src={vsTradersLogo}
-    alt="V.S Traders - Premium Scrap Buyers"
-    className="h-12 w-auto object-contain"
-  />
-</div>
-              
+          <div className="flex items-center">
+              <img
+                src={vsTradersLogo}
+                alt="V.S Traders - Premium Scrap Buyers"
+                className="h-12 w-auto object-contain"
+              />
+            </div>
+            <p className="text-muted-foreground text-sm leading-relaxed">              
+    
             <p className="text-muted-foreground text-sm leading-relaxed">
               Best price scrap buyers in Chennai. We offer doorstep pickup for e-waste, iron, copper, aluminium and home appliances.
             </p>
