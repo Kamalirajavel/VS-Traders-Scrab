@@ -15,6 +15,14 @@ const Footer = () => {
               <div className="w-10 h-10 rounded-lg gradient-gold flex items-center justify-center">
                 <span className="text-background font-900 text-lg">VS</span>
               </div>
+
+
+              <div>
+                <p className="text-foreground font-800 text-lg leading-tight">V.S Traders</p>
+                <p className="text-gold text-[10px] font-500 uppercase tracking-widest">Premium Scrap Buyers</p>
+              </div>
+
+              
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Best price scrap buyers in Chennai. We offer doorstep pickup for e-waste, iron, copper, aluminium and home appliances.
