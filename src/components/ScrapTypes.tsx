@@ -257,7 +257,7 @@ const ScrapTypes = () => {
               />
             </div>
 
-            
+            <a
               href={`https://wa.me/919500805193?text=${encodeURIComponent(
                 `Hi, I want to sell scrap under "${inquiryCategory.name}". Item: ${metalInput || "(not specified)"}`
               )}`}
