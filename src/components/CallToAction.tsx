@@ -58,9 +58,9 @@ const CallToAction = () => {
 
           <div className="flex flex-wrap items-center justify-center gap-8 pt-4">
             {[
-              { value: "Free", label: "Doorstep Pickup" },
-              { value: "Instant", label: "Cash Payment" },
-              { value: "Best", label: "Market Price" },
+              { value: "Verified", label: "Accurate Weighing" },
+              { value: "Eco-Friendly", label: "Responsible Recycling" },
+              { value: "24/7", label: "Quick Response" },
             ].map((item) => (
               <div key={item.label} className="text-center">
                 <p className="text-gold font-800 text-2xl">{item.value}</p>
