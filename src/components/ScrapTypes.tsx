@@ -118,29 +118,14 @@ const ScrapTypes = () => {
                   }`}
                 >
                   {/* Category row — click to expand/collapse, no navigation */}
-
-                  
-                  {/*<button
-                    type="button"
+                 
+                  <div
+                    role="button"
+                    tabIndex={0}
                     onClick={() => toggleCategory(cat.id)}
+                    onKeyDown={(e) => { if (e.key === "Enter") toggleCategory(cat.id); }}
                     className="group w-full flex items-center gap-4 p-4 cursor-pointer text-left"
-                  >*/}
-
-
-                  <button
-                     type="button"
-                     onClick={() => {
-                     if (catProducts.length === 0) {
-                     setMetalInput("");
-                     setInquiryCategory(cat);
-                    } else {
-                        toggleCategory(cat.id);
-                   }
-          }}
-  className="group w-full flex items-center gap-4 p-4 cursor-pointer text-left"
->
-
-                  
+                  >
                     <img
                       src={cat.image_url || ironImg}
                       alt={cat.name}
@@ -155,13 +140,30 @@ const ScrapTypes = () => {
                         {catProducts.length} item{catProducts.length !== 1 ? "s" : ""}
                       </span>
                     </div>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleCart({ id: cat.id, name: cat.name, type: "category" });
+                      }}
+                      className="p-2 rounded-full hover:bg-gold/10 transition-colors flex-shrink-0"
+                      aria-label="Select this category"
+                    >
+                      <Heart
+                        className={`w-5 h-5 transition-colors ${
+                          isInCart(cat.id) ? "fill-gold text-gold" : "text-muted-foreground"
+                        }`}
+                      />
+                    </button>
                     <ChevronDown
                       className={`w-5 h-5 text-muted-foreground group-hover:text-gold transition-transform duration-300 flex-shrink-0 ${
                         isOpen ? "rotate-180" : ""
                       }`}
                     />
-                  </button>
+                  </div>
 
+                  
+                  
                   {/* Expanded items — listed under the category, in place */}
                   <div
                     className={`grid transition-all duration-300 ease-in-out ${
