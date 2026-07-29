@@ -10,17 +10,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="space-y-5">
-            <div className="flex items-center gap-3">
-
-          <div className="flex items-center">
+            <div className="flex items-center">
               <img
                 src={vsTradersLogo}
                 alt="V.S Traders - Premium Scrap Buyers"
                 className="h-12 w-auto object-contain"
               />
             </div>
-            <p className="text-muted-foreground text-sm leading-relaxed">              
-    
             <p className="text-muted-foreground text-sm leading-relaxed">
               Best price scrap buyers in Chennai. We offer doorstep pickup for e-waste, iron, copper, aluminium and home appliances.
             </p>
