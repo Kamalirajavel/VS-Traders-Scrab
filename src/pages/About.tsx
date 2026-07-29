@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import CallToAction from "@/components/CallToAction";
 import { MapPin, Phone, Mail, Users, Calendar, Recycle, TrendingUp } from "lucide-react";
 
+import vsTradersLogo from "@/assets/vs-traders-logo-full.png";
+
 const stats = [
   { value: "500+", label: "Happy Customers", icon: Users },
   { value: "10+", label: "Years Experience", icon: Calendar },
@@ -76,9 +78,18 @@ const About = () => {
             <div className="max-w-3xl mx-auto text-center space-y-8">
               <span className="text-gold text-xs font-700 uppercase tracking-[0.3em]">Our Founder</span>
               <div className="bg-background border border-border rounded-3xl p-10 shadow-card">
-                <div className="w-24 h-24 mx-auto rounded-2xl gradient-gold flex items-center justify-center shadow-gold mb-6 animate-float">
+                
+                  {/*<div className="w-24 h-24 mx-auto rounded-2xl gradient-gold flex items-center justify-center shadow-gold mb-6 animate-float">
                   <span className="text-background font-900 text-3xl">V</span>
-                </div>
+                </div>*/}
+
+                <div className="w-full max-w-[220px] mx-auto mb-6 animate-float">
+  <img
+    src={vsTradersLogo}
+    alt="V.S Traders - Premium Scrap Buyers"
+    className="w-full h-auto object-contain"
+  />
+</div>
                 <h3 className="text-foreground font-800 text-3xl">Vimalraj</h3>
                 <p className="text-gold font-600 mt-2 mb-6">Founder & CEO, V.S Traders</p>
                 <p className="text-muted-foreground leading-relaxed text-lg italic">
