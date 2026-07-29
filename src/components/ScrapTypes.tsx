@@ -65,6 +65,19 @@ const ScrapTypes = () => {
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Browse our material categories and get the best market price for your scrap with fast doorstep pickup in Chennai.
           </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-8 pt-2">
+            {[
+              { value: "Free", label: "Doorstep Pickup" },
+              { value: "Instant", label: "Cash Payment" },
+              { value: "Best", label: "Market Price" },
+            ].map((item) => (
+              <div key={item.label} className="text-center">
+                <p className="text-gold font-800 text-2xl">{item.value}</p>
+                <p className="text-muted-foreground text-sm uppercase tracking-wider">{item.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Loading skeleton */}
