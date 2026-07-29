@@ -15,6 +15,7 @@ import CategoryPage from "./pages/CategoryPage";
 import ProductDetail from "./pages/ProductDetail";
 import ProtectedRoute from "./components/ProtectedRoute";
 import FloatingContactButtons from "@/components/FloatingContactButtons";
+import { CartProvider } from "@/context/CartContext";
 
 const queryClient = new QueryClient();
 
@@ -45,5 +46,13 @@ const App = () => (
     </TooltipProvider>
   </QueryClientProvider>
 );
+
+<QueryClientProvider client={queryClient}>
+  <CartProvider>
+    <TooltipProvider>
+      {/* everything else stays exactly the same */}
+    </TooltipProvider>
+  </CartProvider>
+</QueryClientProvider>
 
 export default App;
