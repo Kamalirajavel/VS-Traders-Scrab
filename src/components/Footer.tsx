@@ -25,7 +25,7 @@ const Footer = () => {
               </div>
             </div> */}
 
-             // NEW
+             
 <div className="flex items-center">
   <img
     src={vsTradersLogo}
