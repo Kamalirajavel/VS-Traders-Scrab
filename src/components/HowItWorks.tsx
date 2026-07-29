@@ -50,7 +50,13 @@ const StepCard = ({ step, className = "" }: { step: typeof steps[0]; className?:
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="py-24 bg-surface">
+
+    
+    {/*<section id="how-it-works" className="py-24 bg-surface"> */}
+
+    <section id="how-it-works" className="pt-8 pb-24 bg-surface">
+
+    
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
         <div className="text-center space-y-4 mb-16">
