@@ -21,38 +21,31 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/admin-login" element={<AdminLogin />} />
-          <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
-          {/* Legacy material detail kept for backwards compat */}
-          <Route path="/materials/:slug" element={<MaterialDetail />} />
-          {/* Category → Products with filter */}
-          <Route path="/categories/:category" element={<CategoryPage />} />
-          {/* Product detail */}
-          <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-        <FloatingContactButtons />
-        
-      </BrowserRouter>
-    </TooltipProvider>
+    <CartProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/admin-login" element={<AdminLogin />} />
+            <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
+            {/* Legacy material detail kept for backwards compat */}
+            <Route path="/materials/:slug" element={<MaterialDetail />} />
+            {/* Category → Products with filter */}
+            <Route path="/categories/:category" element={<CategoryPage />} />
+            {/* Product detail */}
+            <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <FloatingContactButtons />
+        </BrowserRouter>
+      </TooltipProvider>
+    </CartProvider>
   </QueryClientProvider>
 );
-
-<QueryClientProvider client={queryClient}>
-  <CartProvider>
-    <TooltipProvider>
-      {/* everything else stays exactly the same */}
-    </TooltipProvider>
-  </CartProvider>
-</QueryClientProvider>
 
 export default App;
