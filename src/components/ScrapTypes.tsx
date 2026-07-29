@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { ChevronDown, ChevronRight, X, Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import ironImg from "@/assets/scrap-iron.jpg";
+import { Heart } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 
 interface Category {
   id: string;
@@ -30,6 +32,7 @@ const ScrapTypes = () => {
   /*const [expandedId, setExpandedId] = useState<string | null>(null); */
 
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const { isInCart, toggleCart } = useCart();
   const [inquiryCategory, setInquiryCategory] = useState<Category | null>(null);
   const [metalInput, setMetalInput] = useState("");
 
