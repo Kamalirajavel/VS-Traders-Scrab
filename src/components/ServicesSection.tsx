@@ -48,10 +48,10 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-24 bg-background scroll-mt-24">
+    <section id="services" className="py-10 md:py-24 bg-background scroll-mt-24">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-8 md:mb-16">
           <div className="space-y-4">
             <span className="text-gold text-xs font-700 uppercase tracking-[0.3em]">What We Offer</span>
             <h2 className="text-4xl md:text-5xl font-800 text-foreground">
