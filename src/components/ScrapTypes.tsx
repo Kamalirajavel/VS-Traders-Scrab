@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ChevronDown, ChevronRight, X, Send } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import ironImg from "@/assets/scrap-iron.jpg";
-import { Heart } from "lucide-react";
+import { Heart, ShoppingCart } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
 interface Category {
@@ -198,6 +198,26 @@ const ScrapTypes = () => {
                                   ₹{product.price_per_kg}/kg
                                 </span>
                               )}
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  toggleCart({
+                                    id: product.id,
+                                    name: product.product_name,
+                                    type: "product",
+                                    pricePerKg: product.price_per_kg,
+                                  });
+                                }}
+                                className="p-2 rounded-full hover:bg-gold/10 transition-colors flex-shrink-0"
+                                aria-label="Add this item to cart"
+                              >
+                                <ShoppingCart
+                                  className={`w-5 h-5 transition-colors ${
+                                    isInCart(product.id) ? "fill-gold text-gold" : "text-muted-foreground"
+                                  }`}
+                                />
+                              </button>
                               <ChevronRight className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                             </div>
                           ))}
