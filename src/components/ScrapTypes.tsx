@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ChevronDown, ChevronRight, X, Send, Briefcase, MessageSquarePlus } from "lucide-react";
+import { ChevronDown, ChevronRight, X, Send, MessageSquarePlus } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import ironImg from "@/assets/scrap-iron.jpg";
 import suitcaseMuted from "@/assets/suitcase-muted.png";
 import suitcaseGold from "@/assets/suitcase-gold.png";
+import cartMuted from "@/assets/cart-muted.png";
+import cartGold from "@/assets/cart-gold.png";
 import { useCart } from "@/context/CartContext";
 
 interface Category {
@@ -153,7 +155,7 @@ const ScrapTypes = () => {
                       <img
                         src={isInCart(cat.id) ? suitcaseGold : suitcaseMuted}
                         alt="Select this category"
-                        className="w-5 h-5 object-contain transition-opacity"
+                        className="w-8 h-8 object-contain transition-opacity"
                       />
                     </button>
                     <ChevronDown
@@ -213,11 +215,11 @@ const ScrapTypes = () => {
                               className="p-2 rounded-full hover:bg-gold/10 transition-colors flex-shrink-0"
                               aria-label="Add this item to cart"
                             >
-                              <Briefcase
-                                className={`w-5 h-5 transition-colors ${
-                                  isInCart(product.id) ? "fill-gold text-gold" : "text-muted-foreground"
-                                }`}
-                              />
+                            <img
+                              src={isInCart(product.id) ? cartGold : cartMuted}
+                              alt="Add this item to cart"
+                              className="w-5 h-5 object-contain transition-opacity"
+                            />
                             </button>
                             <ChevronRight className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                           </div>
