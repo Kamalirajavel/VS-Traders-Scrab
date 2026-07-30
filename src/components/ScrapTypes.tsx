@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ChevronDown, ChevronRight, X, Send, MessageSquarePlus } from "lucide-react";
+import { ChevronDown, ChevronRight, X, Send, MessageSquarePlus, Plus, Check } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import ironImg from "@/assets/scrap-iron.jpg";
-import suitcaseMuted from "@/assets/suitcase-muted.png";
-import suitcaseGold from "@/assets/suitcase-gold.png";
-import cartMuted from "@/assets/cart-muted.png";
-import cartGold from "@/assets/cart-gold.png";
 import { useCart } from "@/context/CartContext";
 
 interface Category {
@@ -129,21 +125,6 @@ const ScrapTypes = () => {
                         {catProducts.length} item{catProducts.length !== 1 ? "s" : ""}
                       </span>
                     </div>
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        toggleCart({ id: cat.id, name: cat.name, type: "category" });
-                      }}
-                      className="p-2 rounded-full hover:bg-gold/10 transition-colors flex-shrink-0"
-                      aria-label="Select this category"
-                    >
-                      <img
-                        src={isInCart(cat.id) ? suitcaseGold : suitcaseMuted}
-                        alt="Select this category"
-                        className="w-8 h-8 object-contain transition-opacity"
-                      />
-                    </button>
                     <ChevronDown
                       className={`w-5 h-5 text-muted-foreground group-hover:text-gold transition-transform duration-300 flex-shrink-0 ${
                         isOpen ? "rotate-180" : ""
@@ -198,14 +179,24 @@ const ScrapTypes = () => {
                                   pricePerKg: product.price_per_kg,
                                 });
                               }}
-                              className="p-2 rounded-full hover:bg-gold/10 transition-colors flex-shrink-0"
-                              aria-label="Add this item to cart"
+                              className={`flex items-center gap-1 px-3 py-1.5 rounded-full border text-xs font-700 flex-shrink-0 transition-colors ${
+                                isInCart(product.id)
+                                  ? "bg-gold/10 border-gold text-gold"
+                                  : "bg-transparent border-border text-muted-foreground hover:border-gold hover:text-gold"
+                              }`}
+                              aria-label="Add this item"
                             >
-                            <img
-                              src={isInCart(product.id) ? cartGold : cartMuted}
-                              alt="Add this item to cart"
-                              className="w-5 h-5 object-contain transition-opacity"
-                            />
+                              {isInCart(product.id) ? (
+                                <>
+                                  <Check className="w-3.5 h-3.5" />
+                                  Added
+                                </>
+                              ) : (
+                                <>
+                                  <Plus className="w-3.5 h-3.5" />
+                                  Add
+                                </>
+                              )}
                             </button>
                             <ChevronRight className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                           </div>
