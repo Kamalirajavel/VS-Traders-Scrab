@@ -50,10 +50,10 @@ const StepCard = ({ step, className = "" }: { step: typeof steps[0]; className?:
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="pt-8 pb-24 bg-surface">
+    <section id="how-it-works" className="pt-6 md:pt-8 pb-10 md:pb-24 bg-surface">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Header */}
-        <div className="text-center space-y-4 mb-16">
+        <div className="text-center space-y-4 mb-8 md:mb-16">
           <span className="text-gold text-xs font-700 uppercase tracking-[0.3em]">Simple Process</span>
           <h2 className="text-4xl md:text-5xl font-800 text-foreground">
             How It <span className="shimmer-text">Works</span>
