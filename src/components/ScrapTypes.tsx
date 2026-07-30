@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ChevronDown, ChevronRight, X, Send } from "lucide-react";
+import { ChevronDown, ChevronRight, X, Send, Briefcase, MessageSquarePlus } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import ironImg from "@/assets/scrap-iron.jpg";
-import { Heart, ShoppingCart } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
 interface Category {
@@ -149,7 +148,7 @@ const ScrapTypes = () => {
                       className="p-2 rounded-full hover:bg-gold/10 transition-colors flex-shrink-0"
                       aria-label="Select this category"
                     >
-                      <Heart
+                      <Briefcase
                         className={`w-5 h-5 transition-colors ${
                           isInCart(cat.id) ? "fill-gold text-gold" : "text-muted-foreground"
                         }`}
@@ -172,57 +171,77 @@ const ScrapTypes = () => {
                   >
                     <div className="overflow-hidden">
                       {catProducts.length === 0 ? (
-                        <p className="text-muted-foreground text-sm px-4 pb-4">No items listed yet.</p>
-                      ) : (
-                        <div className="border-t border-border divide-y divide-border">
-                          {catProducts.map((product) => (
-                            <div
-                              key={product.id}
-                              onClick={() => navigate(`/product/${product.id}`)}
-                              className="flex items-center gap-4 p-4 hover:bg-surface cursor-pointer transition-colors"
-                            >
-                              <img
-                                src={product.image_url || ironImg}
-                                alt={product.product_name}
-                                className="w-12 h-12 rounded-lg object-cover flex-shrink-0"
-                                onError={(e) => { (e.currentTarget as HTMLImageElement).src = ironImg; }}
-                              />
-                              <div className="flex-1 min-w-0">
-                                <p className="text-foreground text-sm font-600 truncate">{product.product_name}</p>
-                                {product.description && (
-                                  <p className="text-muted-foreground text-xs line-clamp-1">{product.description}</p>
-                                )}
-                              </div>
-                              {product.price_per_kg != null && (
-                                <span className="text-gold text-sm font-700 flex-shrink-0">
-                                  ₹{product.price_per_kg}/kg
-                                </span>
+                        <p className="text-muted-foreground text-sm px-4 pb-2">No items listed yet.</p>
+                      ) : null}
+                      <div className="border-t border-border divide-y divide-border">
+                        {catProducts.map((product) => (
+                          <div
+                            key={product.id}
+                            onClick={() => navigate(`/product/${product.id}`)}
+                            className="flex items-center gap-4 p-4 hover:bg-surface cursor-pointer transition-colors"
+                          >
+                            <img
+                              src={product.image_url || ironImg}
+                              alt={product.product_name}
+                              className="w-12 h-12 rounded-lg object-cover flex-shrink-0"
+                              onError={(e) => { (e.currentTarget as HTMLImageElement).src = ironImg; }}
+                            />
+                            <div className="flex-1 min-w-0">
+                              <p className="text-foreground text-sm font-600 truncate">{product.product_name}</p>
+                              {product.description && (
+                                <p className="text-muted-foreground text-xs line-clamp-1">{product.description}</p>
                               )}
-                              <button
-                                type="button"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  toggleCart({
-                                    id: product.id,
-                                    name: product.product_name,
-                                    type: "product",
-                                    pricePerKg: product.price_per_kg,
-                                  });
-                                }}
-                                className="p-2 rounded-full hover:bg-gold/10 transition-colors flex-shrink-0"
-                                aria-label="Add this item to cart"
-                              >
-                                <ShoppingCart
-                                  className={`w-5 h-5 transition-colors ${
-                                    isInCart(product.id) ? "fill-gold text-gold" : "text-muted-foreground"
-                                  }`}
-                                />
-                              </button>
-                              <ChevronRight className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                             </div>
-                          ))}
+                            {product.price_per_kg != null && (
+                              <span className="text-gold text-sm font-700 flex-shrink-0">
+                                ₹{product.price_per_kg}/kg
+                              </span>
+                            )}
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                toggleCart({
+                                  id: product.id,
+                                  name: product.product_name,
+                                  type: "product",
+                                  pricePerKg: product.price_per_kg,
+                                });
+                              }}
+                              className="p-2 rounded-full hover:bg-gold/10 transition-colors flex-shrink-0"
+                              aria-label="Add this item to cart"
+                            >
+                              <Briefcase
+                                className={`w-5 h-5 transition-colors ${
+                                  isInCart(product.id) ? "fill-gold text-gold" : "text-muted-foreground"
+                                }`}
+                              />
+                            </button>
+                            <ChevronRight className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                          </div>
+                        ))}
+
+                        {/* "Others" row — opens inquiry popup for anything not listed */}
+                        <div
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setMetalInput("");
+                            setInquiryCategory(cat);
+                          }}
+                          className="flex items-center gap-4 p-4 hover:bg-surface cursor-pointer transition-colors"
+                        >
+                          <div className="w-12 h-12 rounded-lg bg-surface border border-dashed border-border flex items-center justify-center flex-shrink-0">
+                            <MessageSquarePlus className="w-5 h-5 text-muted-foreground" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-foreground text-sm font-600">Others</p>
+                            <p className="text-muted-foreground text-xs line-clamp-1">
+                              Don't see your item? Tell us what you have.
+                            </p>
+                          </div>
+                          <ChevronRight className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                         </div>
-                      )}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -261,15 +280,15 @@ const ScrapTypes = () => {
 
             <div className="space-y-2">
               <label htmlFor="metal-input" className="text-foreground text-sm font-600">
-                Metal / item name
+                Tell us what you have
               </label>
-              <input
+              <textarea
                 id="metal-input"
-                type="text"
                 value={metalInput}
                 onChange={(e) => setMetalInput(e.target.value)}
-                placeholder="e.g. Stainless steel utensils"
-                className="w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:border-gold/50"
+                placeholder="e.g. Stainless steel utensils, around 5kg"
+                rows={3}
+                className="w-full bg-background border border-border rounded-xl px-4 py-3 text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:border-gold/50 resize-none"
                 autoFocus
               />
             </div>
