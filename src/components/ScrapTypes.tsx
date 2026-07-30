@@ -66,12 +66,12 @@ const ScrapTypes = () => {
   };
 
   return (
-         <section id="materials" className="pt-24 pb-8 bg-surface">
+         <section id="materials" className="pt-12 pb-6 md:pt-24 md:pb-8 bg-surface">
 
         
-      <div className="container mx-auto px-4 lg:px-8 max-w-3xl">
-        {/* Header */}
-        <div className="text-center space-y-4 mb-16">
+      <div className="container mx-auto px-4 lg:px-8 max-w-3xl flex flex-col">
+        {/* Header (title + description only — stats row moved below, see order classes) */}
+        <div className="text-center space-y-4 mb-8 md:mb-16 order-1">
           <span className="text-gold text-xs font-700 uppercase tracking-[0.3em]">We Accept</span>
           <h2 className="text-4xl md:text-5xl font-800 text-foreground">
             Materials We <span className="shimmer-text">Collect</span>
@@ -79,21 +79,10 @@ const ScrapTypes = () => {
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Browse our material categories and get the best market price for your scrap with fast doorstep pickup in Chennai.
           </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-8 pt-2">
-            {[
-              { value: "Free", label: "Doorstep Pickup" },
-              { value: "Instant", label: "Cash Payment" },
-              { value: "Best", label: "Market Price" },
-            ].map((item) => (
-              <div key={item.label} className="text-center">
-                <p className="text-gold font-800 text-2xl">{item.value}</p>
-                <p className="text-muted-foreground text-sm uppercase tracking-wider">{item.label}</p>
-              </div>
-            ))}
-          </div>
         </div>
 
+        {/* Category list — comes right after the header on mobile, stays in the middle on desktop */}
+        <div className="order-2 md:order-3">
         {/* Loading skeleton */}
         {loading ? (
           <div className="flex flex-col gap-4">
@@ -253,6 +242,21 @@ const ScrapTypes = () => {
             })}
           </div>
          )}
+        </div>
+
+        {/* Stats row (Free / Instant / Best) — after the category buttons on mobile, between header and buttons on desktop */}
+        <div className="flex flex-wrap items-center justify-center gap-8 pt-6 md:pt-2 mt-8 md:mt-0 order-3 md:order-2">
+          {[
+            { value: "Free", label: "Doorstep Pickup" },
+            { value: "Instant", label: "Cash Payment" },
+            { value: "Best", label: "Market Price" },
+          ].map((item) => (
+            <div key={item.label} className="text-center">
+              <p className="text-gold font-800 text-2xl">{item.value}</p>
+              <p className="text-muted-foreground text-sm uppercase tracking-wider">{item.label}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Custom inquiry popup — shown when a category with no listed items is clicked */}
