@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Heart, X, Send } from "lucide-react";
+import { X, Send } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import suitcaseGold from "@/assets/suitcase-gold.png";
 
 const WHATSAPP_NUMBER = "919500805193";
 
@@ -25,7 +26,7 @@ const CartDrawer = () => {
         aria-label="View selected items"
         className="relative flex items-center justify-center w-14 h-14 rounded-full bg-background border border-gold shadow-lg hover:scale-110 transition-transform duration-200"
       >
-        <Heart className="w-6 h-6 text-gold" />
+        <img src={suitcaseGold} alt="View selected items" className="w-6 h-6 object-contain" />
         {totalItems > 0 && (
           <span className="absolute -top-1 -right-1 bg-gold text-background text-xs font-700 w-5 h-5 rounded-full flex items-center justify-center">
             {totalItems}
@@ -51,7 +52,7 @@ const CartDrawer = () => {
 
             {items.length === 0 ? (
               <p className="text-muted-foreground text-sm">
-                No items selected yet. Tap the heart icon on any material or product to add it here.
+                No items selected yet. Tap the suitcase icon on any material or product to add it here.
               </p>
             ) : (
               <div className="space-y-2">
