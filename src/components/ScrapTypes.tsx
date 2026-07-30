@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { ChevronDown, ChevronRight, X, Send, Briefcase, MessageSquarePlus } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import ironImg from "@/assets/scrap-iron.jpg";
+import suitcaseMuted from "@/assets/suitcase-muted.png";
+import suitcaseGold from "@/assets/suitcase-gold.png";
 import { useCart } from "@/context/CartContext";
 
 interface Category {
@@ -148,10 +150,10 @@ const ScrapTypes = () => {
                       className="p-2 rounded-full hover:bg-gold/10 transition-colors flex-shrink-0"
                       aria-label="Select this category"
                     >
-                      <Briefcase
-                        className={`w-5 h-5 transition-colors ${
-                          isInCart(cat.id) ? "fill-gold text-gold" : "text-muted-foreground"
-                        }`}
+                      <img
+                        src={isInCart(cat.id) ? suitcaseGold : suitcaseMuted}
+                        alt="Select this category"
+                        className="w-5 h-5 object-contain transition-opacity"
                       />
                     </button>
                     <ChevronDown
