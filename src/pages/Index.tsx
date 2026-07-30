@@ -23,7 +23,7 @@ const Index = () => {
         <ServicesSection />
 
         {/* About Snippet */}
-        <section id="about" className="py-24 bg-surface">
+        <section id="about" className="py-10 md:py-24 bg-surface">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="space-y-6">
