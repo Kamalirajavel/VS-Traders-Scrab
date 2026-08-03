@@ -165,7 +165,8 @@ const ScrapTypes = () => {
                             </div>
                             {product.price_per_kg != null && (
                               <span className="text-gold text-sm font-700 flex-shrink-0">
-                                ₹{product.price_per_kg}/kg
+                                ₹{product.price_per_kg}
+                                {cat.name.trim().toLowerCase() !== "e-waste" && "/kg"}
                               </span>
                             )}
                             <button
